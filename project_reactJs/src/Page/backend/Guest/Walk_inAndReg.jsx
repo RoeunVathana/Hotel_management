@@ -59,7 +59,7 @@ const Walk_inAndReg = () => {
   ];
 
   const getPreferenceIcon = (preference) => {
-    if (preference === "Airport Pickup") {
+    if (preference === "Airport Pickup") {  
       return <Car size={13} />;
     }
 

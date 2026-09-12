@@ -13,6 +13,7 @@ import {
   LogOut,
   ReceiptText,
 } from "lucide-react";
+import dayjs from "dayjs";
 const Branches = () => {
   // =========================================================
   // STATE
@@ -69,7 +70,7 @@ const Branches = () => {
     try {
       const res = await Request("/api/room", "get");
 
-      console.log("ROOM API RESPONSE:", res);
+      // console.log("ROOM API RESPONSE:", res);
 
       const rooms = Array.isArray(res?.data)
         ? res.data
@@ -102,10 +103,11 @@ const Branches = () => {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       void loadRooms();
+      console.log("Rooms loaded " + JSON.stringify(reservations));
     }, 0);
 
     return () => window.clearTimeout(timer);
-  }, [loadRooms, loadingReservation, CheckOutloading]);
+  }, [loadRooms, loadingReservation, CheckOutloading, reservations]);
 
   // =========================================================
   // OPEN ROOM
@@ -446,6 +448,15 @@ const Branches = () => {
 
   let totalTax_price = Number(selectedRoom?.room_type?.price_per_night) || 0;
   let totalPrice = Number(selectedRoom?.room_type?.price_per_night) || 0;
+
+  const occupiedReservation =
+    selectedRoom && Array.isArray(reservations)
+      ? reservations.find((reservation) =>
+          reservation?.reservation_details?.some(
+            (detail) => detail.room_id === selectedRoom.id,
+          ),
+        )
+      : null;
 
   // =========================================================
   // RETURN UI
@@ -876,34 +887,41 @@ const Branches = () => {
                       </div>
                     </div>
                   )}
-                  {selectedRoom.status === "Occupied" && CheckOutloading && (
-                    <div className="staff-Occupied">  
+                  {selectedRoom.status === "Occupied" && CheckOutloading && occupiedReservation && (
+                    <div className="staff-Occupied">
                       {/* Header */}
                       <div className="staff-Occupied-title">
                         <div className="staff-Occupied-guest">
                           <UserRound size={15} />
-                          <p>Amit Patel</p>
+                          <p>{occupiedReservation.guest_name || "Guest"}</p>
                         </div>
 
-                        <p className="staff-Occupied-booking">BK-1002</p>
+                        <p className="staff-Occupied-booking">
+                          BK-00{occupiedReservation.id ?? selectedRoom.id}
+                        </p>
                       </div>
 
                       {/* Guest information */}
                       <div className="staff-Occupied-content">
                         <div className="staff-Occupied-left">
                           <p>Contact Phone</p>
-                          <span>+91 98220 11984</span>
+                          <span>+855 {occupiedReservation.phone || "N/A"}</span>
                         </div>
 
                         <div className="staff-Occupied-right">
                           <p>Stay Dates</p>
-                          <span>2026-08-19 to 2026-08-20</span>
+                          <span>
+                            {dayjs(occupiedReservation.check_in_date).format("MM-DD-YYYY") || "-"} to {dayjs(occupiedReservation.check_out_date).format("MM-DD-YYYY") || "-"}
+                          </span>
                         </div>
                       </div>
 
                       {/* Buttons */}
                       <div className="staff-Occupied-btn">
-                        <button className="checkout-btn" onClick={() => handleCheckOut(selectedRoom)}>
+                        <button
+                          className="checkout-btn"
+                          onClick={() => handleCheckOut(selectedRoom)}
+                        >
                           <LogOut size={15} />
                           Check-Out Guest
                         </button>

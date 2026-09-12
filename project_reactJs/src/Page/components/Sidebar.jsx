@@ -18,7 +18,6 @@ const Sidebar = () => {
         {id: "branches", label: "Branches", path: "/branches"},
         { id: "room", label: "Room", path: "/room" },
         { id: "room_type", label: "Room Type", path: "/room_type" },
-        { id: "staff", label: "Staff", path: "/staff" },
       ],
     },
 
@@ -28,6 +27,15 @@ const Sidebar = () => {
       path: "/guests",
       submenu: [
         { id: "walk_in & reg", label: "Walk-in & Reg", path: "/walk_in_and_reg"},
+      ],
+    },
+    {
+      id: "position",
+      label: "💳Position",
+      path: "/position",
+      submenu: [
+        { id: "staff", label: "Staff", path: "/staff"},
+        { id: "employees", label: "Employees", path: "/employees"},
       ],
     },
 

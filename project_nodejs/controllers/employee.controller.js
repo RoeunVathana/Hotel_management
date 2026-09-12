@@ -26,11 +26,11 @@ const getAllEmployee = async (req, res) => {
   }
 };
 
-const buildPhoto = (filee) => {
-  if (!filee) {
+const buildPhoto = (file) => {
+  if (!file) {
     return null;
   }
-  return `/image/${filee.filename}`;
+  return `/image/${file.filename}`;
 };
 
 function checkRequire(full_name, gender, phone, role, salary, email, password) {
@@ -84,11 +84,11 @@ const registerEmployee = async (req, res) => {
       req.body;
 
     const file = req.files?.[0];
-    const image = buildPhoto(file);
+    const image = buildPhoto(file); 
 
     checkRequire(full_name, gender, phone, role, salary, email, password);
 
-    const passwordhash = await bcrypt.hash(password, 10);
+    const passwordHash = await bcrypt.hash(password, 10);
 
     const employee = await Employee.create({
       full_name,
@@ -97,7 +97,7 @@ const registerEmployee = async (req, res) => {
       role,
       salary,
       email,
-      password: passwordhash,
+      password: passwordHash,
       image,
     });
 
@@ -139,7 +139,7 @@ const updateEmployee = async (req, res) => {
 
     checkRequire(full_name, gender, phone, role, salary, email, password);
 
-    const passwordhash = await bcrypt.hash(password, 10);
+    const passwordHash = await bcrypt.hash(password, 10);
 
     employee.full_name = full_name;
     employee.gender = gender;
@@ -147,7 +147,7 @@ const updateEmployee = async (req, res) => {
     employee.role = role;
     employee.salary = salary;
     employee.email = email;
-    employee.password = passwordhash;
+    employee.password = passwordHash;
     employee.image = image;
 
     await employee.save();
@@ -226,4 +226,4 @@ const login = async (req, res) => {
         logError("EmployeeLogin", error, res);
     }
 };
-module.exports = { getAllEmployee, registerEmployee, updateEmployee, deleteEmployee };
+module.exports = { getAllEmployee, registerEmployee, updateEmployee, deleteEmployee, login};

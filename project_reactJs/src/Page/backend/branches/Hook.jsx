@@ -273,8 +273,7 @@ const Hook = () => {
                     } has been checked out successfully.`,
             });
 
-            setCheckOutloading((previous) => !previous);
-
+            setCheckOutloading((previous) => !previous  );
         } catch (error) {
             console.error("Check out error:", error);
 
@@ -285,6 +284,8 @@ const Hook = () => {
                     error?.message ||
                     "Failed to check out guest.",
             });
+        } finally {
+            setCheckOutloading(false);
         }
     };
     return (
