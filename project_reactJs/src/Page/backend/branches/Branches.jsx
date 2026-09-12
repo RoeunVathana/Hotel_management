@@ -59,7 +59,8 @@ const Branches = () => {
     loadingReservation,
     reservations,
     handleCheckOut,
-    CheckOutloading
+    CheckOutloading,
+    employee
   } = Hook();
   // =========================================================
   // LOAD ALL ROOMS
@@ -82,7 +83,7 @@ const Branches = () => {
 
       return rooms;
     } catch (error) {
-      console.error("Load rooms error:", error);
+      // console.error("Load rooms error:", error);
 
       alertError({
         title: "Error",
@@ -103,7 +104,7 @@ const Branches = () => {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       void loadRooms();
-      console.log("Rooms loaded " + JSON.stringify(reservations));
+      // console.log("Rooms loaded " + JSON.stringify(reservations));
     }, 0);
 
     return () => window.clearTimeout(timer);
@@ -143,7 +144,7 @@ const Branches = () => {
   // =========================================================
   const loadRoomsByStatus = async (status) => {
     if (!selectedRoom?.id) {
-      console.log("No room selected");
+      // console.log("No room selected");
       return;
     }
 
@@ -203,9 +204,9 @@ const Branches = () => {
         setSelectStaff("");
       }
 
-      console.log(
-        `Room ${selectedRoom.room_number} status changed to ${status}`,
-      );
+      // console.log(
+      //   `Room ${selectedRoom.room_number} status changed to ${status}`,
+      // );
     } catch (error) {
       console.error("Update room status error:", error);
 
@@ -285,9 +286,9 @@ const Branches = () => {
 
       setSelectStaff(String(staffId));
 
-      console.log("Staff assigned successfully:", selectedStaff);
+      // console.log("Staff assigned successfully:", selectedStaff);
     } catch (error) {
-      console.error("Assign staff error:", error);
+      // console.error("Assign staff error:", error);
 
       alertError({
         title: "Error",
@@ -383,9 +384,9 @@ const Branches = () => {
       // -----------------------------------------------------
       await loadRooms();
 
-      console.log(`Room ${selectedRoom.room_number} marked clean.`);
+      // console.log(`Room ${selectedRoom.room_number} marked clean.`);
     } catch (error) {
-      console.error("Mark clean error:", error);
+      // console.error("Mark clean error:", error);
 
       alertError({
         title: "Error",
@@ -1092,7 +1093,11 @@ const Branches = () => {
                       >
                         <option value="">Select Employee</option>
 
-                        <option value="1">Vikram Malhotra</option>
+                        {Array.isArray(employee) && employee.map((emp) => (
+                          <option key={emp.id} value={emp.id}>
+                            {emp.full_name}
+                          </option>
+                        ))}
                       </select>
                     </div>
                   </div>

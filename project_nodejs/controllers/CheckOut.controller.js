@@ -42,7 +42,7 @@ const createCheckOut = async (req, res) => {
   try {
     const {
       reservation_id,
-      // employee_id,
+      employee_id,
       checkout_time,
       total_amount,
       damage_fee,
@@ -64,7 +64,7 @@ const createCheckOut = async (req, res) => {
 
     const checkOut = await CheckOut.create({
       reservation_id,
-      // employee_id,
+      employee_id,
       checkout_time,
       total_amount,
       damage_fee,

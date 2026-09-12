@@ -1,0 +1,18 @@
+[12/09/2026 20:27:36] [registerUser] relation "Users" does not exist
+Error
+    at Query.run (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async PostgresQueryInterface.select (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\sequelize\lib\dialects\abstract\query-interface.js:407:12)
+    at async User.findAll (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\sequelize\lib\model.js:1140:21)
+    at async User.findOne (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\sequelize\lib\model.js:1240:12)
+    at async registerUser (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\controllers\user.controller.js:97:26)
+[12/09/2026 20:27:41] [registerUser] relation "Users" does not exist
+Error
+    at Query.run (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\sequelize\lib\dialects\postgres\query.js:50:25)
+    at D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\sequelize\lib\sequelize.js:315:28
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async PostgresQueryInterface.select (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\sequelize\lib\dialects\abstract\query-interface.js:407:12)
+    at async User.findAll (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\sequelize\lib\model.js:1140:21)
+    at async User.findOne (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\sequelize\lib\model.js:1240:12)
+    at async registerUser (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\controllers\user.controller.js:97:26)

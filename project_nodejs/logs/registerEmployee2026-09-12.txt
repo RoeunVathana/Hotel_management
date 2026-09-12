@@ -1,0 +1,36 @@
+[12/09/2026 21:46:19] [registerEmployee] res is not defined
+ReferenceError: res is not defined
+    at checkRequire (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\controllers\employee.controller.js:38:5)
+    at registerEmployee (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\controllers\employee.controller.js:89:5)
+    at Layer.handleRequest (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\router\lib\layer.js:152:17)
+    at next (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\router\lib\route.js:157:13)
+    at D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\uploads\upload.js:48:24
+    at done (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\lib\make-middleware.js:70:7)
+    at indicateDone (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\lib\make-middleware.js:74:68)
+    at D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\lib\make-middleware.js:247:11
+    at WriteStream.<anonymous> (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\storage\disk.js:47:9)
+    at WriteStream.emit (node:events:521:24)
+[12/09/2026 21:46:24] [registerEmployee] res is not defined
+ReferenceError: res is not defined
+    at checkRequire (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\controllers\employee.controller.js:38:5)
+    at registerEmployee (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\controllers\employee.controller.js:89:5)
+    at Layer.handleRequest (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\router\lib\layer.js:152:17)
+    at next (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\router\lib\route.js:157:13)
+    at D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\uploads\upload.js:48:24
+    at done (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\lib\make-middleware.js:70:7)
+    at indicateDone (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\lib\make-middleware.js:74:68)
+    at D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\lib\make-middleware.js:247:11
+    at WriteStream.<anonymous> (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\storage\disk.js:47:9)
+    at WriteStream.emit (node:events:521:24)
+[12/09/2026 21:46:29] [registerEmployee] res is not defined
+ReferenceError: res is not defined
+    at checkRequire (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\controllers\employee.controller.js:38:5)
+    at registerEmployee (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\controllers\employee.controller.js:89:5)
+    at Layer.handleRequest (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\router\lib\layer.js:152:17)
+    at next (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\router\lib\route.js:157:13)
+    at D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\uploads\upload.js:48:24
+    at done (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\lib\make-middleware.js:70:7)
+    at indicateDone (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\lib\make-middleware.js:74:68)
+    at D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\lib\make-middleware.js:247:11
+    at WriteStream.<anonymous> (D:\ICT Solution\HotelManagement\Hotel_management\project_nodejs\node_modules\multer\storage\disk.js:47:9)
+    at WriteStream.emit (node:events:521:24)

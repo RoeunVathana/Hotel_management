@@ -9,6 +9,7 @@ const Hook = () => {
     const [pricePerNight, setPricePerNight] = useState(0);
     const [loadingReservation, setLoadingReservation] = useState(true);
     const [CheckOutloading, setCheckOutloading] = useState(true);
+    const [employee, setEmployee] = useState([]);
     const [state, setState] = useState({
         customer_id: "",
         reservation_date: "",
@@ -47,7 +48,7 @@ const Hook = () => {
             const res = await Request('/api/reservation', "get");
             if (res) {
                 setReservations(res.data || []);
-                console.log("Fetched Reservations:", res.data);
+                // console.log("Fetched Reservations:", res.data);
             }
         } catch (error) {
             alertError({
@@ -202,6 +203,7 @@ const Hook = () => {
             // =====================================================
             await Request("/api/checkOut", "post", {
                 reservation_id: reservation.id,
+                employee_id: state.employee_id || null,
                 checkout_time: new Date().toISOString(),
                 total_amount: Number(detail.subtotal) || 0,
                 damage_fee: 0,
@@ -275,7 +277,7 @@ const Hook = () => {
 
             setCheckOutloading((previous) => !previous  );
         } catch (error) {
-            console.error("Check out error:", error);
+            // console.error("Check out error:", error);
 
             alertError({
                 title: "Check Out Failed",
@@ -288,6 +290,23 @@ const Hook = () => {
             setCheckOutloading(false);
         }
     };
+
+    //fatch employee
+    const fetchEmployee = async () => {
+        try {
+            const res = await Request('/api/employee', "get");
+            if (res) {
+                setEmployee(res.data);
+            }
+        } catch (error) {
+            alertError({
+                text: error?.message || "Failed to fetch employee data",
+            });
+        }
+    }
+    useEffect(() => {
+        fetchEmployee();
+    }, []);
     return (
         {
             dataStaff,
@@ -299,7 +318,8 @@ const Hook = () => {
             pricePerNight,
             loadingReservation,
             handleCheckOut,
-            CheckOutloading
+            CheckOutloading,
+            employee
         }
     )
 }
