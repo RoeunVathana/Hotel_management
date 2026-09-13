@@ -53,7 +53,7 @@ const getAllCheckIn = async (req, res) => {
 const createCheckIn = async (req, res) => {
   try {
     const { reservation_id,
-      // employee_id, 
+      employee_id, 
       checkin_time, deposit } = req.body;
 
     // Validate reservation_id
@@ -75,7 +75,7 @@ const createCheckIn = async (req, res) => {
     // Create check-in
     const checkIn = await CheckIn.create({
       reservation_id,
-      // employee_id,
+      employee_id,
       checkin_time,
       deposit,
       createdAt: new Date(),

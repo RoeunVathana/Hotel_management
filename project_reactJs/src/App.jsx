@@ -13,6 +13,8 @@ import Staff from "./Page/backend/Staff/Staff";
 import Walk_inAndReg from "./Page/backend/Guest/Walk_inAndReg";
 import Reservation from "./Page/backend/Reservations/Reservation";
 import Employees from "./Page/backend/Employees/Employees";
+import CheckIn from "./Page/backend/checkIn/CheckIn";
+import CheckOut from "./Page/backend/checkOut/CheckOut";
 
 import LayoutPage from "./Page/frontend/layout/LayoutPage";
 import Homepage from "./Page/frontend/Homepage/Homepage";
@@ -32,6 +34,8 @@ const App = () => {
           <Route path="/walk_in_and_reg" element={<Walk_inAndReg />} />
           <Route path="/reservations" element={<Reservation />} />
           <Route path="/employees" element={<Employees />} />
+          <Route path="/check_in" element={<CheckIn />} />
+          <Route path="/check_out" element={<CheckOut />} />
         </Route>
       </Route>
 

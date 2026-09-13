@@ -222,7 +222,8 @@ const Reservation = () => {
         reservation_id: item.id,
         checkin_time: new Date().toISOString(),
         deposit: 0,
-      });
+        employee_id: 1,
+      }); 
 
       // Update local state
       setDataReservation((prevData) =>
@@ -286,6 +287,7 @@ const Reservation = () => {
         reservation_id: item.id,
         checkout_time: new Date().toISOString(),
         total_amount: totalAmount,
+        employee_id: 1, // Assuming employee_id is 1 for now
         damage_fee: 0,
         discount: 0,
       });

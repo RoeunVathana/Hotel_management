@@ -8,7 +8,6 @@ const Sidebar = () => {
   const menuItems = [
 
     { id: "dashboard", label: "📊 Dashboard", path: "/" },
-    { id: "pos_sale", label: "📊 POS_SALE", path: "/pos_sale" },
 
     {
       id: "property",
@@ -66,18 +65,30 @@ const Sidebar = () => {
     },
 
     {
-      id: "reservations",
-      label: "📈 Reservations",
-      path: "/reservations",
+      id: "checkin_checkout",
+      label: "📈 Check-in/Check-out",
+      path: "/checkin_checkout",
+      submenu: [
+        { id: "CheckIn", label: "Check-in", path: "/check_in" },
+        { id: "CheckOut", label: "Check-out", path: "/check_out" },
+      ],
     },
     {
       id: "Housekeeping",
-      label: "📈 Housekeeping & Services",
+      label: "📈 Housekeeping",
       path: "/operations",
       submenu: [
         { id: "Housekeeping_board", label: "Housekeeping Board", path: "/housekeeping_board" },
       ],
     },
+
+    {
+      id: "reservations",
+      label: "📈 Reservations",
+      path: "/reservations",
+    },
+    { id: "pos_sale", label: "📊 POS_SALE", path: "/pos_sale" },
+    
     {
       id: "pos",
       label: "📈 pos / Restaurant",

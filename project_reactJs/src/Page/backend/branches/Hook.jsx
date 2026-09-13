@@ -95,7 +95,7 @@ const Hook = () => {
             email: state.email,
             guest_name: state.guest_name,
             phone: state.phone,
-            employee_id: state.employee_id
+            employee_id:   1,
         }
 
         if (!data.check_out_date || !data.reservation_details[0].room_id) {
@@ -203,7 +203,7 @@ const Hook = () => {
             // =====================================================
             await Request("/api/checkOut", "post", {
                 reservation_id: reservation.id,
-                employee_id: state.employee_id || null,
+                employee_id: 1,
                 checkout_time: new Date().toISOString(),
                 total_amount: Number(detail.subtotal) || 0,
                 damage_fee: 0,
