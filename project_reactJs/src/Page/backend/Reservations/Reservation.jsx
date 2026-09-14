@@ -9,10 +9,12 @@ import {
   X,
 } from "lucide-react";
 
-import "./reservation.css";
+import "./style/reservation.css";
 import LightMode from "../DartMode/LightMode";
 import Request from "../../util/Request";
 import { alertError, alertSuccess } from "../../../swertalert/AlertSuccess";
+import PopupBooking from "./PopupBooking";
+import PopupWalkRg from "./PopupWalkRg";
 
 const Reservation = () => {
   const [status, setStatus] = useState("All Statuses");
@@ -23,6 +25,9 @@ const Reservation = () => {
   const [loading, setLoading] = useState(true);
   const [loadingId, setLoadingId] = useState(null);
   const [loadingAction, setLoadingAction] = useState(null);
+
+  const [isBookingPopupOpen, setIsBookingPopupOpen] = useState(false);
+  const [isWalkinPopupOpen, setIsWalkinPopupOpen] = useState(false);
 
   // =========================================================
   // Format API date
@@ -83,9 +88,8 @@ const Reservation = () => {
     const nights = Number(detail?.nights || 0);
     const guests = Number(reservation?.total_guest || 0);
 
-    return `${nights} ${nights === 1 ? "night" : "nights"}, ${guests} ${
-      guests === 1 ? "guest" : "guests"
-    }`;
+    return `${nights} ${nights === 1 ? "night" : "nights"}, ${guests} ${guests === 1 ? "guest" : "guests"
+      }`;
   };
 
   // =========================================================
@@ -223,16 +227,16 @@ const Reservation = () => {
         checkin_time: new Date().toISOString(),
         deposit: 0,
         employee_id: 1,
-      }); 
+      });
 
       // Update local state
       setDataReservation((prevData) =>
         prevData.map((reservation) =>
           reservation.id === item.id
             ? {
-                ...reservation,
-                status: "Checked In",
-              }
+              ...reservation,
+              status: "Checked In",
+            }
             : reservation,
         ),
       );
@@ -309,9 +313,9 @@ const Reservation = () => {
         prevData.map((reservation) =>
           reservation.id === item.id
             ? {
-                ...reservation,
-                status: "Checked Out",
-              }
+              ...reservation,
+              status: "Checked Out",
+            }
             : reservation,
         ),
       );
@@ -374,9 +378,9 @@ const Reservation = () => {
         prevData.map((reservation) =>
           reservation.id === item.id
             ? {
-                ...reservation,
-                status: "Cancelled",
-              }
+              ...reservation,
+              status: "Cancelled",
+            }
             : reservation,
         ),
       );
@@ -429,9 +433,7 @@ const Reservation = () => {
           <button
             type="button"
             className="create-booking-btn"
-            onClick={() => {
-              console.log("Create New Booking");
-            }}
+            onClick={() => setIsWalkinPopupOpen(true)}
           >
             <Plus size={18} />
             Create New Booking
@@ -518,7 +520,6 @@ const Reservation = () => {
                 </tr>
               ) : filteredReservations.length > 0 ? (
                 filteredReservations.map((item) => {
-                  const room = getRoom(item);
                   const roomType = getRoomType(item);
                   const isLoading = loadingId === item.id;
 
@@ -588,17 +589,17 @@ const Reservation = () => {
                           {/* Check In */}
                           {(item.status === "Confirmed" ||
                             item.status === "Reserved") && (
-                            <button
-                              type="button"
-                              className="action-btn check-in"
-                              onClick={() => handleCheckIn(item)}
-                              disabled={loadingId !== null}
-                            >
-                              {isLoading && loadingAction === "checkin"
-                                ? "Checking In..."
-                                : "Check In"}
-                            </button>
-                          )}
+                              <button
+                                type="button"
+                                className="action-btn check-in"
+                                onClick={() => handleCheckIn(item)}
+                                disabled={loadingId !== null}
+                              >
+                                {isLoading && loadingAction === "checkin"
+                                  ? "Checking In..."
+                                  : "Check In"}
+                              </button>
+                            )}
 
                           {/* Check Out */}
                           {item.status === "Checked In" && (
@@ -620,9 +621,7 @@ const Reservation = () => {
                             className="icon-action"
                             title="Payment"
                             disabled={loadingId !== null}
-                            onClick={() => {
-                              console.log("Payment for reservation:", item.id);
-                            }}
+                            onClick={() => setIsBookingPopupOpen(true)}
                           >
                             <Receipt size={17} />
                           </button>
@@ -630,20 +629,20 @@ const Reservation = () => {
                           {/* Cancel */}
                           {(item.status === "Confirmed" ||
                             item.status === "Reserved") && (
-                            <button
-                              type="button"
-                              className="icon-action cancel"
-                              title="Cancel"
-                              disabled={loadingId !== null}
-                              onClick={() => handleCancel(item)}
-                            >
-                              {isLoading && loadingAction === "cancel" ? (
-                                "..."
-                              ) : (
-                                <X size={16} />
-                              )}
-                            </button>
-                          )}
+                              <button
+                                type="button"
+                                className="icon-action cancel"
+                                title="Cancel"
+                                disabled={loadingId !== null}
+                                onClick={() => handleCancel(item)}
+                              >
+                                {isLoading && loadingAction === "cancel" ? (
+                                  "..."
+                                ) : (
+                                  <X size={16} />
+                                )}
+                              </button>
+                            )}
                         </div>
                       </td>
                     </tr>
@@ -662,6 +661,20 @@ const Reservation = () => {
           </table>
         </section>
       </main>
+
+      {isBookingPopupOpen && (
+        <div className="popup-booking-container">
+          <PopupBooking onClose={() => setIsBookingPopupOpen(false)} />
+        </div>
+      )}
+
+      {
+        isWalkinPopupOpen && (
+          <div className="popup-walkin-container">
+            <PopupWalkRg onClose={() => setIsWalkinPopupOpen(false)} />
+          </div>
+        )
+      }
     </div>
   );
 };

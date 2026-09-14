@@ -1,0 +1,669 @@
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.walkin-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(22, 31, 48, 0.68);
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    backdrop-filter: blur(3px);
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.walkin-modal {
+    width: 100%;
+    max-width: 900px;
+
+    max-height: 96vh;
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.25),
+        0 5px 15px rgba(0, 0, 0, 0.12);
+
+    overflow-x: hidden;
+}
+
+
+/* Scrollbar */
+
+.walkin-modal::-webkit-scrollbar {
+    width: 5px;
+}
+
+.walkin-modal::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.walkin-modal::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.walkin-header {
+    height: 74px;
+
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #101a30;
+
+    color: white;
+}
+
+
+.walkin-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.walkin-header-icon {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #00b894;
+
+    font-size: 17px;
+}
+
+
+.walkin-header h2 {
+    margin: 0;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    line-height: 22px;
+}
+
+
+.walkin-header span {
+    display: block;
+
+    color: #aab5c8;
+
+    font-size: 11px;
+    line-height: 15px;
+}
+
+
+.walkin-close {
+    border: none;
+    background: transparent;
+
+    color: #8d9ab0;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+
+.walkin-close:hover {
+    color: white;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+.walkin-body {
+    padding: 20px;
+
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.walkin-section {
+    margin-bottom: 12px;
+}
+
+
+.walkin-section-title {
+    position: relative;
+
+    margin-bottom: 10px;
+
+    color: #26364d;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.walkin-section-title>span {
+    color: #00a98f;
+}
+
+
+/* =====================================================
+   GUEST TABS
+===================================================== */
+
+.guest-tabs {
+    margin-left: auto;
+
+    display: flex;
+
+    background: #f0f3f7;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+}
+
+
+.guest-tabs button {
+    border: none;
+
+    padding: 5px 8px;
+
+    background: transparent;
+
+    color: #66758a;
+
+    font-size: 8px;
+
+    cursor: pointer;
+}
+
+
+.guest-tabs .active-tab {
+    background: #ffffff;
+
+    color: #00a98f;
+
+    font-weight: 600;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.walkin-grid {
+    display: grid;
+
+    gap: 6px;
+}
+
+
+.guest-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.four-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.walkin-body input,
+.walkin-body select {
+    width: 100%;
+
+    height: 40px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d7e0eb;
+
+    border-radius: 8px;
+
+    background: #fbfcfe;
+
+    color: #34445a;
+
+    outline: none;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+
+.walkin-body input::placeholder {
+    color: #99a5b5;
+}
+
+
+.walkin-body input:focus,
+.walkin-body select:focus {
+    border-color: #00a98f;
+
+    box-shadow: 0 0 0 2px rgba(0, 169, 143, 0.08);
+}
+
+
+/* =====================================================
+   INPUT GROUP
+===================================================== */
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.input-group label {
+    color: #718096;
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   ROOM TYPE
+===================================================== */
+
+.room-types {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 5px;
+
+    margin-bottom: 7px;
+}
+
+
+.room-card {
+    min-height: 58px;
+
+    padding: 10px;
+
+    text-align: left;
+
+    background: #ffffff;
+
+    border: 1px solid #dce4ed;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.room-card:hover {
+    border-color: #00b89c;
+}
+
+
+.room-card.selected {
+    background: #f1fffc;
+
+    border: 1.5px solid #00b89c;
+}
+
+
+.room-card strong {
+    display: block;
+
+    color: #3c4d62;
+
+    font-size: 12px;
+
+    margin-bottom: 4px;
+}
+
+
+.room-card span {
+    display: block;
+
+    color: #708096;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   ROOM SELECT
+===================================================== */
+
+.room-select select {
+    height: 40px;
+
+    font-size: 13px;
+
+    background: #f8fafc;
+}
+
+
+/* =====================================================
+   ADDONS
+===================================================== */
+
+.addons {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 6px;
+}
+
+
+.addon-card {
+    min-height: 52px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 6px;
+
+    border: 1px solid #dce4ed;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    background: #ffffff;
+}
+
+
+.addon-card:hover {
+    border-color: #00b89c;
+}
+
+
+.addon-card input {
+    width: 11px;
+    height: 11px;
+
+    margin-top: 1px;
+
+    accent-color: #009e88;
+}
+
+
+.addon-card strong {
+    display: block;
+
+    color: #33445a;
+
+    font-size: 12px;
+
+    line-height: 16px;
+}
+
+
+.addon-card span {
+    display: block;
+
+    color: #8793a4;
+
+    font-size: 11px;
+
+    margin-top: 3px;
+}
+
+
+/* =====================================================
+   PRICE SUMMARY
+===================================================== */
+
+.price-summary {
+    margin-top: 14px;
+
+    padding: 14px;
+
+    background: #101a30;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+}
+
+
+.price-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 5px;
+}
+
+
+.price-row span {
+    color: #d0d7e2;
+
+    font-size: 12px;
+}
+
+
+.price-row strong {
+    color: #dce3ec;
+
+    font-size: 12px;
+}
+
+
+.price-divider {
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    margin: 7px 0;
+}
+
+
+.grand-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.grand-total span {
+    color: #ffc400;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+.grand-total strong {
+    color: #ffc400;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   DEPOSIT
+===================================================== */
+
+.deposit-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 8px;
+}
+
+
+.deposit-row>span {
+    color: #b9c3d2;
+
+    font-size: 12px;
+}
+
+
+.deposit-input {
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+}
+
+
+.deposit-input>span {
+    color: #b9c3d2;
+
+    font-size: 13px;
+}
+
+
+.deposit-input input {
+    width: 120px;
+
+    height: 32px;
+
+    background: #1d2b45;
+
+    border: 1px solid #34445f;
+
+    color: #ffc400;
+
+    text-align: right;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   CONFIRM BUTTON
+===================================================== */
+
+.confirm-button {
+    width: 100%;
+
+    height: 44px;
+
+    margin-top: 14px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #00a982;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    box-shadow: 0 3px 7px rgba(0, 169, 130, 0.2);
+}
+
+
+.confirm-button:hover {
+    background: #008f70;
+
+    transform: translateY(-1px);
+}
+
+
+.confirm-button span {
+    margin-right: 5px;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .walkin-overlay {
+        padding: 10px;
+    }
+
+    .walkin-modal {
+        max-height: 96vh;
+    }
+
+    .guest-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .four-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .room-types {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .addons {
+        grid-template-columns: 1fr;
+    }
+}

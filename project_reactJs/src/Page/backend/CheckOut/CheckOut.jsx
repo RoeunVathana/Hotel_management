@@ -87,7 +87,7 @@ const CheckOut = () => {
       <LightMode title="Check Out" />
 
       {/* ================= SEARCH & FILTER ================= */}
-      <div className="checkin-search">
+      <div className="checkOut-search">
         <div>
           <select
             name="guest"
@@ -127,7 +127,7 @@ const CheckOut = () => {
       </div>
 
       {/* ================= CHECK-OUT CARDS ================= */}
-      <div className="checkin-container">
+      <div className="checkOut-container">
         {filteredData.length > 0 ? (
           filteredData.map((item) => {
             const employee = item?.employee;
@@ -135,11 +135,11 @@ const CheckOut = () => {
 
             return (
               <div
-                className="checkin-card-item"
+                className="checkOut-card-item"
                 key={item.id}
               >
                 {/* ================= HEADER ================= */}
-                <div className="checkin-header">
+                <div className="checkOut-header">
                   <img
                     src={
                       employee?.image
@@ -172,8 +172,10 @@ const CheckOut = () => {
                   </div>
 
                   {/* CHECK-OUT STATUS */}
-                  <div className="checkin-badge status-checked-out">
-                    Checked Out
+                  <div className="checkOut-badge status-checked-out">
+                    <span>
+                      Checked Out
+                    </span>
                   </div>
                 </div>
 
@@ -219,16 +221,16 @@ const CheckOut = () => {
                 </div>
 
                 {/* ================= DATE & TIME ================= */}
-                <div className="checkin-dates">
+                <div className="checkOut-dates">
                   <div>
                     <label>
                       Check In Time
                     </label>
 
                     <p>
-                      {item?.check_in_date
+                      {item[0]?.check_in_date
                         ? dayjs(
-                          item.check_in_date
+                          item[0].check_in_date
                         ).format(
                           "DD MMM YYYY, hh:mm A"
                         )
@@ -262,7 +264,7 @@ const CheckOut = () => {
             );
           })
         ) : (
-          <div className="no-checkin">
+          <div className="no-checkOut">
             <h3>No Check-out Found</h3>
           </div>
         )}
