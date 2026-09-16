@@ -2,7 +2,7 @@
    OVERLAY
 ===================================================== */
 
-.walkin-overlay {
+.popup-walkin-overlay {
     position: fixed;
     inset: 0;
     z-index: 9999;
@@ -11,12 +11,12 @@
     align-items: center;
     justify-content: center;
 
-    background: rgba(22, 31, 48, 0.68);
+    background: rgba(15, 23, 42, 0.65);
 
     padding: 20px;
     box-sizing: border-box;
 
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(4px);
 }
 
 
@@ -24,36 +24,37 @@
    MODAL
 ===================================================== */
 
-.walkin-modal {
+.popup-walkin-modal {
     width: 100%;
     max-width: 900px;
 
     max-height: 96vh;
     overflow-y: auto;
 
-    background: #ffffff;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
 
-    border-radius: 14px;
+    border-radius: 22px;
 
     box-shadow:
-        0 20px 45px rgba(0, 0, 0, 0.25),
-        0 5px 15px rgba(0, 0, 0, 0.12);
+        0 28px 60px rgba(15, 23, 42, 0.28),
+        0 10px 24px rgba(15, 23, 42, 0.08);
 
     overflow-x: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 
 /* Scrollbar */
 
-.walkin-modal::-webkit-scrollbar {
+.popup-walkin-modal::-webkit-scrollbar {
     width: 5px;
 }
 
-.walkin-modal::-webkit-scrollbar-track {
+.popup-walkin-modal::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.walkin-modal::-webkit-scrollbar-thumb {
+.popup-walkin-modal::-webkit-scrollbar-thumb {
     background: #cbd5e1;
     border-radius: 10px;
 }
@@ -63,8 +64,8 @@
    HEADER
 ===================================================== */
 
-.walkin-header {
-    height: 74px;
+.popup-walkin-header {
+    height: 76px;
 
     padding: 0 20px;
 
@@ -72,20 +73,21 @@
     align-items: center;
     justify-content: space-between;
 
-    background: #101a30;
+    background: linear-gradient(135deg, #101a30 0%, #172943 100%);
 
     color: white;
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
 }
 
 
-.walkin-header-left {
+.popup-walkin-header-left {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 
-.walkin-header-icon {
+.popup-walkin-header-icon {
     width: 27px;
     height: 27px;
 
@@ -99,7 +101,7 @@
 }
 
 
-.walkin-header h2 {
+.popup-walkin-header h2 {
     margin: 0;
 
     font-size: 17px;
@@ -109,7 +111,7 @@
 }
 
 
-.walkin-header span {
+.popup-walkin-header span {
     display: block;
 
     color: #aab5c8;
@@ -119,7 +121,7 @@
 }
 
 
-.walkin-close {
+.popup-walkin-close {
     border: none;
     background: transparent;
 
@@ -133,7 +135,7 @@
 }
 
 
-.walkin-close:hover {
+.popup-walkin-close:hover {
     color: white;
 }
 
@@ -142,10 +144,12 @@
    BODY
 ===================================================== */
 
-.walkin-body {
+.popup-walkin-body {
     padding: 20px;
 
-    background: #ffffff;
+    background:
+        radial-gradient(circle at top right, rgba(13, 187, 154, 0.05), transparent 22%),
+        linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
 }
 
 
@@ -153,12 +157,12 @@
    SECTION
 ===================================================== */
 
-.walkin-section {
+.popup-walkin-section {
     margin-bottom: 12px;
 }
 
 
-.walkin-section-title {
+.popup-walkin-section-title {
     position: relative;
 
     margin-bottom: 10px;
@@ -174,7 +178,7 @@
 }
 
 
-.walkin-section-title>span {
+.popup-walkin-section-title>span {
     color: #00a98f;
 }
 
@@ -183,7 +187,7 @@
    GUEST TABS
 ===================================================== */
 
-.guest-tabs {
+.popup-walkin-guest-tabs {
     margin-left: auto;
 
     display: flex;
@@ -196,13 +200,12 @@
 }
 
 
-.guest-tabs button {
+.popup-walkin-guest-tabs button {
     border: none;
 
     padding: 5px 8px;
 
     background: transparent;
-
     color: #66758a;
 
     font-size: 8px;
@@ -211,7 +214,7 @@
 }
 
 
-.guest-tabs .active-tab {
+.popup-walkin-guest-tabs .popup-walkin-active-tab {
     background: #ffffff;
 
     color: #00a98f;
@@ -226,19 +229,19 @@
    GRID
 ===================================================== */
 
-.walkin-grid {
+.popup-walkin-grid {
     display: grid;
 
     gap: 6px;
 }
 
 
-.guest-grid {
+.popup-walkin-guest-grid {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
 
-.four-grid {
+.popup-walkin-four-grid {
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
@@ -247,8 +250,8 @@
    INPUT
 ===================================================== */
 
-.walkin-body input,
-.walkin-body select {
+.popup-walkin-body input,
+.popup-walkin-body select {
     width: 100%;
 
     height: 40px;
@@ -273,13 +276,13 @@
 }
 
 
-.walkin-body input::placeholder {
+.popup-walkin-body input::placeholder {
     color: #99a5b5;
 }
 
 
-.walkin-body input:focus,
-.walkin-body select:focus {
+.popup-walkin-body input:focus,
+.popup-walkin-body select:focus {
     border-color: #00a98f;
 
     box-shadow: 0 0 0 2px rgba(0, 169, 143, 0.08);
@@ -290,7 +293,7 @@
    INPUT GROUP
 ===================================================== */
 
-.input-group {
+.popup-walkin-input-group {
     display: flex;
     flex-direction: column;
 
@@ -298,7 +301,7 @@
 }
 
 
-.input-group label {
+.popup-walkin-input-group label {
     color: #718096;
 
     font-size: 11px;
@@ -310,7 +313,7 @@
    ROOM TYPE
 ===================================================== */
 
-.room-types {
+.popup-walkin-room-types {
     display: grid;
 
     grid-template-columns: repeat(4, 1fr);
@@ -321,7 +324,7 @@
 }
 
 
-.room-card {
+.popup-walkin-room-card {
     min-height: 58px;
 
     padding: 10px;
@@ -340,19 +343,19 @@
 }
 
 
-.room-card:hover {
+.popup-walkin-room-card:hover {
     border-color: #00b89c;
 }
 
 
-.room-card.selected {
+.popup-walkin-room-card-selected {
     background: #f1fffc;
 
     border: 1.5px solid #00b89c;
 }
 
 
-.room-card strong {
+.popup-walkin-room-card strong {
     display: block;
 
     color: #3c4d62;
@@ -363,7 +366,7 @@
 }
 
 
-.room-card span {
+.popup-walkin-room-card span {
     display: block;
 
     color: #708096;
@@ -376,7 +379,7 @@
    ROOM SELECT
 ===================================================== */
 
-.room-select select {
+.popup-walkin-room-select select {
     height: 40px;
 
     font-size: 13px;
@@ -389,7 +392,7 @@
    ADDONS
 ===================================================== */
 
-.addons {
+.popup-walkin-addons {
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -398,7 +401,7 @@
 }
 
 
-.addon-card {
+.popup-walkin-addon-card {
     min-height: 52px;
 
     padding: 10px;
@@ -420,12 +423,12 @@
 }
 
 
-.addon-card:hover {
+.popup-walkin-addon-card:hover {
     border-color: #00b89c;
 }
 
 
-.addon-card input {
+.popup-walkin-addon-card input {
     width: 11px;
     height: 11px;
 
@@ -435,7 +438,7 @@
 }
 
 
-.addon-card strong {
+.popup-walkin-addon-card strong {
     display: block;
 
     color: #33445a;
@@ -446,7 +449,7 @@
 }
 
 
-.addon-card span {
+.popup-walkin-addon-card span {
     display: block;
 
     color: #8793a4;
@@ -461,20 +464,21 @@
    PRICE SUMMARY
 ===================================================== */
 
-.price-summary {
+.popup-walkin-price-summary {
     margin-top: 14px;
 
-    padding: 14px;
+    padding: 16px;
 
-    background: #101a30;
+    background: linear-gradient(135deg, #101a30 0%, #182a42 100%);
 
-    border-radius: 8px;
+    border-radius: 12px;
 
     color: #ffffff;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 
-.price-row {
+.popup-walkin-price-row {
     display: flex;
 
     justify-content: space-between;
@@ -485,21 +489,21 @@
 }
 
 
-.price-row span {
+.popup-walkin-price-row span {
     color: #d0d7e2;
 
     font-size: 12px;
 }
 
 
-.price-row strong {
+.popup-walkin-price-row strong {
     color: #dce3ec;
 
     font-size: 12px;
 }
 
 
-.price-divider {
+.popup-walkin-price-divider {
     height: 1px;
 
     background: rgba(255, 255, 255, 0.1);
@@ -508,7 +512,7 @@
 }
 
 
-.grand-total {
+.popup-walkin-grand-total {
     display: flex;
 
     justify-content: space-between;
@@ -517,7 +521,7 @@
 }
 
 
-.grand-total span {
+.popup-walkin-grand-total span {
     color: #ffc400;
 
     font-size: 14px;
@@ -526,7 +530,7 @@
 }
 
 
-.grand-total strong {
+.popup-walkin-grand-total strong {
     color: #ffc400;
 
     font-size: 16px;
@@ -539,7 +543,7 @@
    DEPOSIT
 ===================================================== */
 
-.deposit-row {
+.popup-walkin-deposit-row {
     display: flex;
 
     align-items: center;
@@ -550,14 +554,14 @@
 }
 
 
-.deposit-row>span {
+.popup-walkin-deposit-row>span {
     color: #b9c3d2;
 
     font-size: 12px;
 }
 
 
-.deposit-input {
+.popup-walkin-deposit-input {
     display: flex;
 
     align-items: center;
@@ -566,14 +570,14 @@
 }
 
 
-.deposit-input>span {
+.popup-walkin-deposit-input>span {
     color: #b9c3d2;
 
     font-size: 13px;
 }
 
 
-.deposit-input input {
+.popup-walkin-deposit-input input {
     width: 120px;
 
     height: 32px;
@@ -596,41 +600,41 @@
    CONFIRM BUTTON
 ===================================================== */
 
-.confirm-button {
+.popup-walkin-confirm-button {
     width: 100%;
 
-    height: 44px;
+    height: 46px;
 
     margin-top: 14px;
 
     border: none;
 
-    border-radius: 9px;
+    border-radius: 12px;
 
-    background: #00a982;
+    background: linear-gradient(135deg, #13c49a 0%, #00a982 100%);
 
     color: white;
 
     font-size: 14px;
 
-    font-weight: 700;
+    font-weight: 800;
 
     cursor: pointer;
 
     transition: 0.2s;
 
-    box-shadow: 0 3px 7px rgba(0, 169, 130, 0.2);
+    box-shadow: 0 12px 24px rgba(0, 169, 130, 0.2);
 }
 
 
-.confirm-button:hover {
-    background: #008f70;
+.popup-walkin-confirm-button:hover {
+    background: linear-gradient(135deg, #10b891 0%, #008f70 100%);
 
     transform: translateY(-1px);
 }
 
 
-.confirm-button span {
+.popup-walkin-confirm-button span {
     margin-right: 5px;
 
     font-size: 11px;
@@ -643,27 +647,27 @@
 
 @media (max-width: 600px) {
 
-    .walkin-overlay {
+    .popup-walkin-overlay {
         padding: 10px;
     }
 
-    .walkin-modal {
+    .popup-walkin-modal {
         max-height: 96vh;
     }
 
-    .guest-grid {
+    .popup-walkin-guest-grid {
         grid-template-columns: 1fr;
     }
 
-    .four-grid {
+    .popup-walkin-four-grid {
         grid-template-columns: 1fr 1fr;
     }
 
-    .room-types {
+    .popup-walkin-room-types {
         grid-template-columns: 1fr 1fr;
     }
 
-    .addons {
+    .popup-walkin-addons {
         grid-template-columns: 1fr;
     }
 }

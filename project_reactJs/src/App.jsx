@@ -20,6 +20,7 @@ import LayoutPage from "./Page/frontend/layout/LayoutPage";
 import Homepage from "./Page/frontend/Homepage/Homepage";
 import AboutPage from "./Page/frontend/AboutPage/AboutPage";
 
+import ScrollToTop from "./Page/ScrollToTop/ScrollToTop";
 const App = () => {
   return (
     <Routes>

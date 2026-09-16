@@ -157,7 +157,7 @@ const CheckIn = () => {
                     <label>Scheduled Check Out</label>
                     <p>
                       {reservation?.check_out_date
-                        ? dayjs(reservation.check_out_date).format("DD MMM YYYY")
+                        ? dayjs(reservation.check_out_date).format("DD MMM YYYY, hh:mm A")
                         : "N/A"}
                     </p>
                   </div>

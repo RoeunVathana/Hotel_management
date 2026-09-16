@@ -28,6 +28,7 @@ const Reservation = () => {
 
   const [isBookingPopupOpen, setIsBookingPopupOpen] = useState(false);
   const [isWalkinPopupOpen, setIsWalkinPopupOpen] = useState(false);
+  const [selectedReservation, setSelectedReservation] = useState(null);
 
   // =========================================================
   // Format API date
@@ -621,7 +622,10 @@ const Reservation = () => {
                             className="icon-action"
                             title="Payment"
                             disabled={loadingId !== null}
-                            onClick={() => setIsBookingPopupOpen(true)}
+                            onClick={() => {
+                              setSelectedReservation(item);
+                              setIsBookingPopupOpen(true);
+                            }}
                           >
                             <Receipt size={17} />
                           </button>
@@ -664,7 +668,13 @@ const Reservation = () => {
 
       {isBookingPopupOpen && (
         <div className="popup-booking-container">
-          <PopupBooking onClose={() => setIsBookingPopupOpen(false)} />
+          <PopupBooking
+            reservation={selectedReservation}
+            onClose={() => {
+              setIsBookingPopupOpen(false);
+              setSelectedReservation(null);
+            }}
+          />
         </div>
       )}
 

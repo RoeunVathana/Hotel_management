@@ -17,13 +17,15 @@ body.light-mode .dashboard {
 
 .reservation-page {
   min-height: 100vh;
-  background: #f4f6fa;
+  background:
+    radial-gradient(circle at top left, rgba(0, 168, 144, 0.12), transparent 28%),
+    linear-gradient(180deg, #f5f7fb 0%, #edf2f8 100%);
   color: #10213a;
 }
 
 .reservation-container {
   width: calc(100% - 40px);
-  /* max-width: 1230px; */
+  max-width: 1280px;
   margin: 0 auto;
   padding: 18px 0 50px;
 }
@@ -35,42 +37,46 @@ body.light-mode .dashboard {
 
 .reservation-header {
   min-height: 74px;
-  background: #ffffff;
-  border: 1px solid #dce3ed;
-  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(220, 227, 237, 0.9);
+  border-radius: 18px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 14px 16px;
-  margin-bottom: 16px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
 
-  box-shadow: 0 1px 2px rgba(16, 33, 58, 0.03);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(8px);
 }
 
 .reservation-title {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
 }
 
 .title-icon {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  border-radius: 12px;
+  background: linear-gradient(135deg, #dffaf5, #c6f3e4);
   color: #00a58a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .reservation-title h1 {
   margin: 0;
 
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 800;
   line-height: 20px;
 
   color: #10213a;
@@ -79,7 +85,7 @@ body.light-mode .dashboard {
 .reservation-title p {
   margin: 3px 0 0;
 
-  font-size: 14px;
+  font-size: 13px;
   line-height: 16px;
 
   color: #657895;
@@ -91,34 +97,35 @@ body.light-mode .dashboard {
 ========================================= */
 
 .create-booking-btn {
-  height: 34px;
+  height: 38px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 8px;
 
-  padding: 0 17px;
+  padding: 0 18px;
 
   border: none;
   border-radius: 12px;
 
-  background: #009f83;
+  background: linear-gradient(135deg, #0dbb9a 0%, #009f83 100%);
   color: white;
 
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
 
   cursor: pointer;
 
-  box-shadow: 0 3px 7px rgba(0, 159, 131, 0.22);
+  box-shadow: 0 10px 22px rgba(0, 159, 131, 0.25);
 
   transition: all 0.2s ease;
 }
 
 .create-booking-btn:hover {
-  background: #008b73;
+  background: linear-gradient(135deg, #0aae94 0%, #008d72 100%);
   transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(0, 159, 131, 0.28);
 }
 
 
@@ -127,20 +134,22 @@ body.light-mode .dashboard {
 ========================================= */
 
 .reservation-filter {
-  min-height: 57px;
+  min-height: 62px;
 
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.9);
 
-  border: 1px solid #dce3ed;
-  border-radius: 13px;
+  border: 1px solid rgba(220, 227, 237, 0.9);
+  border-radius: 16px;
 
-  padding: 9px 12px;
+  padding: 10px 14px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  margin-bottom: 16px;
+  margin-bottom: 18px;
+
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
 }
 
 .filter-left {
@@ -157,7 +166,7 @@ body.light-mode .dashboard {
   color: #58708e;
 
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .status-buttons {
@@ -167,18 +176,18 @@ body.light-mode .dashboard {
 }
 
 .filter-btn {
-  height: 25px;
+  height: 30px;
 
-  border: none;
-  border-radius: 9px;
+  border: 1px solid transparent;
+  border-radius: 10px;
 
   padding: 0 12px;
 
   background: #f1f5f9;
   color: #173353;
 
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
 
   cursor: pointer;
 
@@ -186,12 +195,13 @@ body.light-mode .dashboard {
 }
 
 .filter-btn:hover {
-  background: #e5edf5;
+  background: #e8eef6;
 }
 
 .filter-btn.active {
-  background: #172940;
+  background: linear-gradient(135deg, #172940 0%, #1c3553 100%);
   color: #ffffff;
+  box-shadow: 0 8px 18px rgba(23, 41, 64, 0.18);
 }
 
 
@@ -256,12 +266,13 @@ body.light-mode .dashboard {
 
   overflow-x: auto;
 
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.9);
 
-  border: 1px solid #dce3ed;
-  border-radius: 13px;
+  border: 1px solid rgba(220, 227, 237, 0.9);
+  border-radius: 18px;
 
-  box-shadow: 0 1px 2px rgba(16, 33, 58, 0.03);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(10px);
 }
 
 
@@ -278,11 +289,11 @@ body.light-mode .dashboard {
 }
 
 .reservation-table thead {
-  background: #f8fafc;
+  background: linear-gradient(180deg, #f9fbfd 0%, #f4f7fb 100%);
 }
 
 .reservation-table th {
-  height: 40px;
+  height: 42px;
 
   padding: 0 15px;
 
@@ -292,16 +303,17 @@ body.light-mode .dashboard {
 
   color: #173353;
 
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 800;
 
   white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 .reservation-table td {
-  height: 57px;
+  height: 60px;
 
-  padding: 7px 15px;
+  padding: 8px 15px;
 
   border-bottom: 1px solid #e5eaf0;
 
@@ -315,11 +327,11 @@ body.light-mode .dashboard {
 }
 
 .reservation-table tbody tr {
-  transition: background 0.15s ease;
+  transition: background 0.18s ease, transform 0.18s ease;
 }
 
 .reservation-table tbody tr:hover {
-  background: #fbfcfe;
+  background: linear-gradient(90deg, rgba(13, 187, 154, 0.04), rgba(255, 255, 255, 0.7));
 }
 
 
@@ -419,36 +431,37 @@ body.light-mode .dashboard {
   align-items: center;
   justify-content: center;
 
-  min-width: 67px;
-  height: 20px;
+  min-width: 72px;
+  height: 24px;
 
-  padding: 0 9px;
+  padding: 0 10px;
 
-  border-radius: 10px;
+  border-radius: 999px;
 
-  font-size: 14x;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 800;
 
   white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 .status.checked-in {
-  background: #c9f8df;
-  color: #007c59;
+  background: linear-gradient(135deg, #d9fbe9, #c2f1d9);
+  color: #0a7d5e;
 }
 
 .status.checked-out {
-  background: #e5eaf0;
+  background: linear-gradient(135deg, #edf2f7, #e3ebf5);
   color: #50627a;
 }
 
 .status.confirmed {
-  background: #fff0b8;
+  background: linear-gradient(135deg, #fff5d8, #ffe8a8);
   color: #a45a00;
 }
 
 .status.cancelled {
-  background: #ffe0e5;
+  background: linear-gradient(135deg, #ffe5ea, #ffd3dc);
   color: #c52342;
 }
 
@@ -463,19 +476,19 @@ body.light-mode .dashboard {
   align-items: center;
   justify-content: center;
 
-  min-height: 20px;
+  min-height: 22px;
 
-  padding: 0 9px;
+  padding: 0 10px;
 
-  border-radius: 6px;
+  border-radius: 999px;
 
-  background: #f3f6fa;
-  border: 1px solid #dce4ed;
+  background: linear-gradient(135deg, #f5f7fb, #edf3fb);
+  border: 1px solid #dfe7f1;
 
   color: #36506e;
 
-  font-size: 14x;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 700;
 
   white-space: nowrap;
 }
@@ -493,7 +506,7 @@ body.light-mode .dashboard {
   color: #102c4b;
 
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
 
   white-space: nowrap;
 }
@@ -503,8 +516,8 @@ body.light-mode .dashboard {
 
   color: #00a078;
 
-  font-size: 14x;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
 
   white-space: nowrap;
 }
@@ -524,37 +537,40 @@ body.light-mode .dashboard {
 }
 
 .action-btn {
-  height: 24px;
+  height: 28px;
 
   border: none;
-  border-radius: 9px;
+  border-radius: 10px;
 
   padding: 0 12px;
 
   color: white;
 
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 800;
 
   cursor: pointer;
 
   transition: all 0.2s ease;
+  letter-spacing: 0.02em;
 }
 
 .action-btn.check-in {
-  background: #009f83;
+  background: linear-gradient(135deg, #19c79c 0%, #009f83 100%);
+  box-shadow: 0 8px 18px rgba(0, 159, 131, 0.18);
 }
 
 .action-btn.check-in:hover {
-  background: #008b73;
+  background: linear-gradient(135deg, #12b991 0%, #008b73 100%);
 }
 
 .action-btn.check-out {
-  background: #f00046;
+  background: linear-gradient(135deg, #ff5f87 0%, #f00046 100%);
+  box-shadow: 0 8px 18px rgba(240, 0, 70, 0.18);
 }
 
 .action-btn.check-out:hover {
-  background: #d9003f;
+  background: linear-gradient(135deg, #f7517d 0%, #d9003f 100%);
 }
 
 
@@ -563,37 +579,39 @@ body.light-mode .dashboard {
 ========================================= */
 
 .icon-action {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   border: none;
-  background: transparent;
+  background: #f3f7fb;
 
   color: #263f5d;
 
   cursor: pointer;
 
-  border-radius: 5px;
+  border-radius: 8px;
 
   transition: all 0.2s ease;
 }
 
 .icon-action:hover {
-  background: #f0f4f8;
+  background: #eaf1f7;
+  transform: translateY(-1px);
 }
 
 .icon-action.cancel {
   color: #ff1744;
-  border: 1px solid #ff1744;
+  border: 1px solid rgba(255, 23, 68, 0.35);
   border-radius: 50%;
+  background: rgba(255, 23, 68, 0.04);
 }
 
 .icon-action.cancel:hover {
-  background: #fff0f3;
+  background: rgba(255, 23, 68, 0.08);
 }
 
 
