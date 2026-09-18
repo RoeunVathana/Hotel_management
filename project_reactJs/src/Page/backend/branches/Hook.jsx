@@ -3,6 +3,7 @@ import { alertError, alertSuccess } from '../../../swertalert/AlertSuccess'
 import Request from '../../util/Request';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Hook = () => {
     const [dataStaff, setStaff] = useState([]);
     const [reservations, setReservations] = useState([]);
@@ -23,6 +24,8 @@ const Hook = () => {
         phone: "",
         employee_id: "",
     });
+
+    const navigate = useNavigate();
 
     // fetch staff
     const fetchStaff = async () => {
@@ -82,7 +85,7 @@ const Hook = () => {
             check_in_date: checkInDate,
             check_out_date: checkOutDate,
             total_guest: Number(state.total_guest) || 1,
-            status: state.status || "Reserved",
+            status: state.status || "Checked In",
             reservation_details: [
                 {
                     room_id: room?.id,
@@ -95,7 +98,7 @@ const Hook = () => {
             email: state.email,
             guest_name: state.guest_name,
             phone: state.phone,
-            employee_id:   1,
+            employee_id:   state.employee_id || null,
         }
 
         if (!data.check_out_date || !data.reservation_details[0].room_id) {
@@ -132,10 +135,11 @@ const Hook = () => {
                 });
 
                 await Request(`/api/room/status/${room?.id}`, "put", {
-                    status: "Reserved",
+                    status: "Occupied",
                 });
 
                 setLoadingReservation(false);
+                navigate("/payment");
 
                 setState({
                     customer_id: "",

@@ -15,12 +15,13 @@ import Reservation from "./Page/backend/Reservations/Reservation";
 import Employees from "./Page/backend/Employees/Employees";
 import CheckIn from "./Page/backend/checkIn/CheckIn";
 import CheckOut from "./Page/backend/checkOut/CheckOut";
+import Payment from "./Page/backend/Payment/Payment";
 
 import LayoutPage from "./Page/frontend/layout/LayoutPage";
 import Homepage from "./Page/frontend/Homepage/Homepage";
 import AboutPage from "./Page/frontend/AboutPage/AboutPage";
 
-import ScrollToTop from "./Page/ScrollToTop/ScrollToTop";
+
 const App = () => {
   return (
     <Routes>
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/employees" element={<Employees />} />
           <Route path="/check_in" element={<CheckIn />} />
           <Route path="/check_out" element={<CheckOut />} />
+          <Route path="/payment" element={<Payment />} />
         </Route>
       </Route>
 
